@@ -1,0 +1,18 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Streamlit
+.streamlit/config.toml
+
+# System files
+.DS_Store
+
+# Zip files or output
+*.zip

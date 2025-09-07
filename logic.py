@@ -3,7 +3,6 @@ import re
 import zipfile
 from io import BytesIO
 from PyPDF2 import PdfReader
-import sys
 
 def extract_text_from_pdf(uploaded_file):
     text = ""
@@ -16,10 +15,10 @@ def extract_text_from_pdf(uploaded_file):
     return text
 
 def matches_criteria(text):
-    psd_matches = re.findall(r'PSD\s+([0-9]*\.?[0-9]+)', text)
-    psd_valid = any(float(match) < 0.15 for match in psd_matches)
-    rsid_match = re.search(r'RSID\s+[45]\b', text)
-    return psd_valid and rsid_match
+    psad_matches = re.findall(r'PSA-D\s+([0-9]*\.?[0-9]+)', text)
+    psad_valid = any(float(match) < 0.15 for match in psad_matches)
+    pirad_match = re.search(r'PI-RADS\s+[45]\b', text)
+    return psad_valid and pirad_match
 
 def create_zip_of_filtered_files(filtered_files):
     zip_buffer = BytesIO()
